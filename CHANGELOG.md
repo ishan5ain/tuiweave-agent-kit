@@ -3,7 +3,7 @@
 ## Unreleased
 
 - Add compatibility guidance for tuiweave's built-in theme preset catalog and
-  record validation against core commit `158d777429dcceae57afe5cdc1551d4c31f2d566`.
+  record validation against core commit `13834919770071a93320b009600eba72bbf9748b`.
 - Add contribution, conduct, security, support, governance, and issue/PR
   guidance for the public community repository.
 

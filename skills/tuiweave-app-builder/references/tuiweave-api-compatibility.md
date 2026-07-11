@@ -1,6 +1,6 @@
 # tuiweave API compatibility
 
-Generated from tuiweave revision `158d777429dcceae57afe5cdc1551d4c31f2d566`. Verify against the application pinned revision.
+Generated from tuiweave revision `13834919770071a93320b009600eba72bbf9748b`. Verify against the application pinned revision.
 
 ## Relevant package contracts
 
