@@ -23,6 +23,9 @@ revision.
 - Review or audit: [`playbooks/review.md`](playbooks/review.md)
 - Reusable skill: [`skills/tuiweave-app-builder/SKILL.md`](skills/tuiweave-app-builder/SKILL.md)
 - Task shape: [`playbooks/task-contract.md`](playbooks/task-contract.md)
+- Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Support: [`SUPPORT.md`](SUPPORT.md)
+- Security: [`SECURITY.md`](SECURITY.md)
 
 Run the audit without modifying the target repository:
 
@@ -44,3 +47,6 @@ never rewrites source or regenerates goldens.
 
 See [`install/`](install/) for Codex, Pi, and other Agent Skills-compatible
 hosts. The same skill package is used for every host.
+
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) and [GOVERNANCE.md](GOVERNANCE.md)
+for community expectations and project decision-making.

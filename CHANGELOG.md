@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add contribution, conduct, security, support, governance, and issue/PR
+  guidance for the public community repository.
+
 ## v0.1.0 — 2026-07-11
 
 - Add greenfield, migration, review, task-contract, and quality-gate playbooks.
