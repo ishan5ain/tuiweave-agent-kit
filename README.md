@@ -4,16 +4,15 @@ Portable workflows, templates, an Agent Skills package, and read-only audit
 tooling for applications built with
 [`github.com/ishan5ain/tuiweave`](https://github.com/ishan5ain/tuiweave).
 
-Gotui remains the source of truth for component APIs, design rules, recipes,
+tuiweave remains the source of truth for component APIs, design rules, recipes,
 and runnable examples. This kit owns operational workflows for greenfield apps,
 existing-TUI migrations, reviews, host installation, and repeatable audits.
 
 ## Compatibility
 
-Release `v0.1.0-tuiweave-286ea01` was validated against tuiweave base revision
-`286ea01c0c8b8100c284e7b726ae6f9e921781cb` and the textarea completion API
-introduced in the same rollout. Pin applications to an explicit tuiweave tag or
-commit; do not use moving `@latest` instructions. Run
+Release `v0.1.0` is validated against tuiweave core commit
+`a647f53882652763343dd57e31175e35f182427e`. Pin applications to an explicit
+tuiweave tag or commit; do not use moving `@latest` instructions. Run
 `scripts/sync-tuiweave-reference.sh /path/to/tuiweave` after changing the validated
 revision.
 
