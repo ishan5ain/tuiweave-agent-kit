@@ -1,7 +1,7 @@
 # nice-llama migration dogfood
 
 Target reviewed read-only:
-`nice-llama-server/docs/gotui-migration-plan.md`.
+`nice-llama-server/docs/tuiweave-migration-plan.md`.
 
 The migration workflow found the following:
 
@@ -23,11 +23,11 @@ The migration workflow found the following:
   the multi-pane design requirement. Wheel delegation must remain independent
   of keyboard focus.
 - Focus risk is recognized, but “conditional registration” and manager
-  “capacity” are not gotui APIs. The implementation plan must define concrete
+  “capacity” are not tuiweave APIs. The implementation plan must define concrete
   manager/scope/stack counts, fresh-address `Apply` calls, visibility routing,
   and modal isolation before Slice 10.
 - The prerequisites still use `go get ...@latest` and developer-specific
-  absolute paths. Generated app instructions must pin gotui and use portable
+  absolute paths. Generated app instructions must pin tuiweave and use portable
   repository links; local `replace` paths are development-only.
 
 No nice-llama files were modified during this dogfood review.

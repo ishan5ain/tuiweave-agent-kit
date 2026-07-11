@@ -2,4 +2,4 @@ module example.com/missing-sizing
 
 go 1.26.2
 
-require github.com/ishansain/gotui v0.0.0-20260711000000-286ea01c0c8b
+require github.com/ishan5ain/tuiweave v0.0.0-20260711000000-286ea01c0c8b

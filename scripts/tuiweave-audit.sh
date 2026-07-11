@@ -51,8 +51,8 @@ advise() {
 	printf 'ADVISORY: %s\n' "$1"
 }
 
-if [ ! -f "$repo/go.mod" ] || ! grep -q 'github.com/ishansain/gotui' "$repo/go.mod"; then
-	block "missing github.com/ishansain/gotui dependency in go.mod"
+if [ ! -f "$repo/go.mod" ] || ! grep -q 'github.com/ishan5ain/tuiweave' "$repo/go.mod"; then
+	block "missing github.com/ishan5ain/tuiweave dependency in go.mod"
 fi
 
 raw_matches=$(find "$repo" -type f -name '*.go' ! -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -HnE '#[[:xdigit:]]{3,8}([^[:xdigit:]]|$)|lipgloss[.]Color[[:space:]]*[(]' {} + 2>/dev/null | grep -Ev '/(theme|themes|color|colors)(/|[^/]*[.]go:)|:[0-9]+:[[:space:]]*//' || true)
@@ -71,7 +71,7 @@ if [ ! -f "$repo/AGENTS.md" ]; then
 	advise "missing app-level AGENTS.md"
 fi
 
-ui_sources=$(find "$repo" -type f -name '*.go' ! -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'github.com/ishansain/gotui' {} + 2>/dev/null || true)
+ui_sources=$(find "$repo" -type f -name '*.go' ! -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'github.com/ishan5ain/tuiweave' {} + 2>/dev/null || true)
 if [ -n "$ui_sources" ]; then
 	snapshot_tests=$(find "$repo" -type f -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'snaptest[.]Snap' {} + 2>/dev/null || true)
 	scenario_tests=$(find "$repo" -type f -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'snaptest[.]RunScenario' {} + 2>/dev/null || true)

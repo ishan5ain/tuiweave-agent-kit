@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ishansain/gotui/snaptest"
+import "github.com/ishan5ain/tuiweave/snaptest"
 
 func auditCoverageNames() {
 	_ = snaptest.Snap

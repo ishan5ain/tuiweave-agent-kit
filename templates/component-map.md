@@ -12,7 +12,7 @@
 - Command-produced messages:
 - Narrow/empty states:
 
-## Candidate gotui API gaps
+## Candidate tuiweave API gaps
 
 For each gap include the reusable behavior, why existing APIs cannot express
 it, a minimal reproducer, and an acceptance test.

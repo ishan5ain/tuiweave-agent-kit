@@ -1,8 +1,8 @@
 # Migration mode
 
 Inventory rendering, sizing, key/mouse input, scrolling, focus, modals, domain
-state, persistence, and tests. Classify each concern as reusable gotui behavior,
-application-owned behavior, or a candidate gotui API gap.
+state, persistence, and tests. Classify each concern as reusable tuiweave behavior,
+application-owned behavior, or a candidate tuiweave API gap.
 
 Create vertical slices with the standard task contract and explicit file
 ownership. Preserve behavior before visual changes. Do not execute parallel

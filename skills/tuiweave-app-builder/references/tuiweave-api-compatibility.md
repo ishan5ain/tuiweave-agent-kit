@@ -1,6 +1,6 @@
-# gotui API compatibility
+# tuiweave API compatibility
 
-Generated from gotui revision `286ea01c0c8b8100c284e7b726ae6f9e921781cb`. Verify against the application pinned revision.
+Generated from tuiweave revision `2e99af36363065392d5427e95f6926f30d5400c2`. Verify against the application pinned revision.
 
 ## Relevant package contracts
 
@@ -35,4 +35,4 @@ Generated from gotui revision `286ea01c0c8b8100c284e7b726ae6f9e921781cb`. Verify
 
 ## Source of truth
 
-Read `AGENT-CATALOG.md`, the matching `AGENTS.md` recipe, and the closest runnable example from the pinned gotui checkout before editing.
+Read `AGENT-CATALOG.md`, the matching `AGENTS.md` recipe, and the closest runnable example from the pinned tuiweave checkout before editing.

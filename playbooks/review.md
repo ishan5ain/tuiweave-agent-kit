@@ -1,9 +1,9 @@
 # Review playbook
 
-Audit the pinned gotui version and actual contracts before reviewing behavior.
+Audit the pinned tuiweave version and actual contracts before reviewing behavior.
 Check:
 
-- all colors use `gotui.Theme` roles;
+- all colors use `tuiweave.Theme` roles;
 - app code does not import Ultraviolet;
 - layout rectangles are app-owned and bounded components receive `SetSize`;
 - each component `Update` return model is reassigned and each command collected;
@@ -13,7 +13,7 @@ Check:
 - modal command results are delivered and visibility remains app-owned;
 - narrow, empty, focused, and scrolled states behave intentionally;
 - snapshots cover rendering and scenarios cover transitions/results;
-- referenced gotui API names exist at the pinned revision.
+- referenced tuiweave API names exist at the pinned revision.
 
 Classify findings as blocking correctness defects, advisory coverage/design
-risks, or candidate gotui API gaps. Never regenerate goldens during an audit.
+risks, or candidate tuiweave API gaps. Never regenerate goldens during an audit.

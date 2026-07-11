@@ -2,7 +2,7 @@
 set -eu
 
 root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-audit="$root/scripts/gotui-audit.sh"
+audit="$root/scripts/tuiweave-audit.sh"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT HUP INT TERM
 
@@ -43,4 +43,4 @@ expect_fail ultraviolet 'Ultraviolet' --repo "$root/testdata/ultraviolet-violati
 expect_pass missing-sizing-advisory --repo "$root/testdata/missing-sizing"
 expect_fail missing-sizing-strict 'WindowSizeMsg' --repo "$root/testdata/missing-sizing" --strict
 
-printf 'PASS: gotui audit fixtures\n'
+printf 'PASS: tuiweave audit fixtures\n'

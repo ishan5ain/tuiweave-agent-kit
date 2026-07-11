@@ -1,12 +1,12 @@
 # TUI migration agent instructions
 
-Target gotui revision: `<PINNED_VERSION_OR_COMMIT>`
+Target tuiweave revision: `<PINNED_VERSION_OR_COMMIT>`
 
-Use the gotui source documentation at https://github.com/ishansain/gotui and
-the migration playbook in gotui-agent-kit. Inventory existing rendering,
+Use the tuiweave source documentation at https://github.com/ishan5ain/tuiweave and
+the migration playbook in tuiweave-agent-kit. Inventory existing rendering,
 input, scrolling, focus, mouse, modal, and domain behavior before editing.
-Classify every concern as reusable gotui behavior, application-owned behavior,
-or a candidate gotui API gap.
+Classify every concern as reusable tuiweave behavior, application-owned behavior,
+or a candidate tuiweave API gap.
 
 Work in vertical slices using `migration-plan.md`. Preserve behavior before
 intentional visual changes and review every golden diff. Do not parallelize

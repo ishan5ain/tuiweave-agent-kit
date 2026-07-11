@@ -1,8 +1,8 @@
 # Install for other agents
 
 Use the host's Agent Skills discovery directory and copy the complete
-`skills/gotui-app-builder` directory there. Prefer the cross-host project path
-`.agents/skills/gotui-app-builder` when supported. The host must preserve the
+`skills/tuiweave-app-builder` directory there. Prefer the cross-host project path
+`.agents/skills/tuiweave-app-builder` when supported. The host must preserve the
 standard `SKILL.md` frontmatter and make the adjacent `references/` files
 available to the agent.
 

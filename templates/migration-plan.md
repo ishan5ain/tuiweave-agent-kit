@@ -3,8 +3,8 @@
 ## Baseline
 
 - Current TUI stack:
-- Pinned gotui version/commit:
-- Closest gotui examples:
+- Pinned tuiweave version/commit:
+- Closest tuiweave examples:
 - Existing behavior snapshots:
 
 ## Vertical slices
@@ -13,7 +13,7 @@
 
 ```text
 Goal:
-Reference gotui example:
+Reference tuiweave example:
 Components:
 Application-owned state:
 Files allowed:
@@ -25,4 +25,4 @@ Out of scope:
 
 Dependencies and serialization constraints:
 
-Candidate gotui API gaps:
+Candidate tuiweave API gaps:

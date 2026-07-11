@@ -1,7 +1,7 @@
 # Greenfield mode
 
-1. Inspect repository conventions, Go/gotui versions, and tests.
-2. Route the app to the closest gotui example and matching recipes.
+1. Inspect repository conventions, Go/tuiweave versions, and tests.
+2. Route the app to the closest tuiweave example and matching recipes.
 3. Produce a component map, layout rectangles, focus order, state-ownership
    map, and command/result flow.
 4. Implement the smallest working shell before product behavior.

@@ -6,9 +6,9 @@ package into either project location:
 
 ```sh
 mkdir -p .pi/skills
-cp -R /path/to/gotui-agent-kit/skills/gotui-app-builder .pi/skills/
+cp -R /path/to/tuiweave-agent-kit/skills/tuiweave-app-builder .pi/skills/
 ```
 
-Alternatively use `.agents/skills/gotui-app-builder` when the repository is
+Alternatively use `.agents/skills/tuiweave-app-builder` when the repository is
 shared with other Agent Skills-compatible hosts. Do not maintain a Pi-specific
 fork. See https://pi.dev/docs/latest/skills for current discovery details.

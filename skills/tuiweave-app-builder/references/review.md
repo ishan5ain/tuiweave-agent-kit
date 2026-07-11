@@ -11,8 +11,8 @@ Audit:
 - modal result delivery and app-owned visibility;
 - narrow, empty, focus, selection, and scrolling behavior;
 - snapshot and scenario coverage;
-- actual API names/contracts at the pinned gotui revision.
+- actual API names/contracts at the pinned tuiweave revision.
 
-Report blocking findings, advisories, and candidate gotui gaps separately. Run
+Report blocking findings, advisories, and candidate tuiweave gaps separately. Run
 the audit read-only and do not regenerate goldens or implement fixes unless the
 user requested changes.

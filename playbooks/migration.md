@@ -6,11 +6,11 @@ Inventory current rendering, terminal sizing, input handling, scrolling,
 selection, focus, modals, mouse routing, domain state, persistence, and tests.
 For each concern classify it as:
 
-- reusable gotui behavior;
+- reusable tuiweave behavior;
 - application-owned behavior;
-- candidate gotui API gap.
+- candidate tuiweave API gap.
 
-Map actual APIs against the pinned gotui revision before planning. Preserve
+Map actual APIs against the pinned tuiweave revision before planning. Preserve
 current behavior and snapshot it before intentionally changing visuals.
 
 ## Slice the migration
@@ -26,4 +26,4 @@ modals/results, inputs/completion, then domain views. Keep backend and session
 logic application-owned.
 
 Review every golden diff. Report reusable gaps with a minimal reproducer and
-acceptance contract; do not add guessed wrappers or local gotui forks.
+acceptance contract; do not add guessed wrappers or local tuiweave forks.

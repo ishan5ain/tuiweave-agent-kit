@@ -1,4 +1,4 @@
-# gotui review checklist
+# tuiweave review checklist
 
 - [ ] Gotui dependency is pinned and API names match that revision.
 - [ ] Colors come from semantic theme roles.
