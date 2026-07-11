@@ -1,0 +1,21 @@
+# Greenfield playbook
+
+1. Inspect the repository, `go.mod`, Go version, current test conventions, and
+   the pinned gotui tag or commit. Read gotui's `AGENT-CATALOG.md`, matching
+   `AGENTS.md` recipes, and the closest runnable example.
+2. Write a component map, layout rectangles, focus order, message/result flow,
+   and application-owned state map. Keep backend clients, persistence, and
+   product orchestration outside gotui components.
+3. Create tasks using the standard task contract. Start with the smallest
+   working shell: root model, `WindowSizeMsg` layout, sizing, focus, delegation,
+   and one composed `tea.View`.
+4. Add behavior in vertical slices. Always reassign component models returned
+   by `Update` and collect every `tea.Cmd`.
+5. Add readable snapshots for default, focused, empty/full, and narrow states;
+   add named scenarios for meaningful transitions and command delivery.
+6. Run build, vet, tests, intentional golden update/review, and
+   `gotui-audit.sh --strict --verify`.
+
+Pin gotui in committed configuration. A local `replace` directive may be used
+temporarily during development and should not become the release dependency.
+Gotui changes require explicit authorization.
