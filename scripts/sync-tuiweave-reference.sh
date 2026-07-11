@@ -20,7 +20,7 @@ trap 'rm -f "$tmp"' EXIT HUP INT TERM
 	printf 'Generated from tuiweave revision `%s`. Verify against the application pinned revision.\n\n' "$revision"
 	printf '## Relevant package contracts\n\n'
 	printf '| Package | Contract |\n|---|---|\n'
-	grep -E '^\| `(layout|scrollbar|focus|dialog|autocomplete|textarea)`' "$tuiweave/AGENT-CATALOG.md" |
+	grep -E '^\| `(tuiweave|layout|scrollbar|focus|dialog|autocomplete|textarea)`' "$tuiweave/AGENT-CATALOG.md" |
 		sed -E 's/^\| (`[^`]+`) \| [^|]+ \| ([^|]+) \|$/| \1 | \2 |/'
 	printf '\n## Compatibility notes\n\n'
 	sed -n '/^## API compatibility notes/,/^## Validation loop/p' "$tuiweave/AGENT-CATALOG.md" | sed '1d;$d'
