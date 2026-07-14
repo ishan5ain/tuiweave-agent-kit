@@ -42,6 +42,10 @@ Out of scope:
 ## Universal constraints
 
 - Pin or identify the tuiweave version. A local `replace` is development-only.
+- Choose a fixed named theme constructor when theme discovery is unnecessary.
+  When an app exposes built-in choices, enumerate `tuiweave.Presets()`, resolve
+  stable IDs with `ThemeForPreset`, and reconstruct themed components while
+  preserving application-owned state.
 - Keep product routing, persistence, backends, and lifecycle in the app.
 - Report reusable API gaps with a minimal example and acceptance test. Do not
   create a local tuiweave fork or modify tuiweave without explicit authorization.

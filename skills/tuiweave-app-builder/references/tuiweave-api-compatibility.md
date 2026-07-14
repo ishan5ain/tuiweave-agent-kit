@@ -1,11 +1,12 @@
 # tuiweave API compatibility
 
-Generated from tuiweave revision `2e99af36363065392d5427e95f6926f30d5400c2`. Verify against the application pinned revision.
+Generated from tuiweave revision `13834919770071a93320b009600eba72bbf9748b`. Verify against the application pinned revision.
 
 ## Relevant package contracts
 
 | Package | Contract |
 |---|---|
+| `tuiweave` | `tuiweave.Presets()` + `ThemeForPreset`, or a named constructor; never raw colors |
 | `layout` | `layout.Vertical(...).Apply(area, &components...)`; `SizeModeOf` for sizing exceptions |
 | `focus` | `NewManager(n)`, `NewScope(n)`, or `NewStack(n)`; apply fresh addresses after changes |
 | `scrollbar` | `scrollbar.For(theme, component)` in a 1-cell layout segment |
