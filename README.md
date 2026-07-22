@@ -10,9 +10,8 @@ existing-TUI migrations, reviews, host installation, and repeatable audits.
 
 ## Compatibility
 
-Release `v0.1.0` is validated against tuiweave core commit
-`a647f53882652763343dd57e31175e35f182427e`. Pin applications to an explicit
-tuiweave tag or commit; do not use moving `@latest` instructions. Run
+The current kit is validated against tuiweave `v0.2.0`. Pin applications to an
+explicit tuiweave tag or commit; do not use moving `@latest` instructions. Run
 `scripts/sync-tuiweave-reference.sh /path/to/tuiweave` after changing the validated
 revision.
 
@@ -43,6 +42,7 @@ never rewrites source or regenerates goldens.
 
 ```sh
 ./tests/tuiweave-audit_test.sh
+./tests/sync-tuiweave-reference_test.sh
 ```
 
 See [`install/`](install/) for Codex, Pi, and other Agent Skills-compatible

@@ -10,10 +10,11 @@ the requested mode from the task; if it is ambiguous, inspect the repository and
 choose migration when an existing TUI is present, otherwise greenfield.
 
 Before editing, inspect the repository and `go.mod`, record the exact tuiweave
-version or commit, and read the pinned tuiweave repository's `AGENT-CATALOG.md`,
-matching `AGENTS.md` recipes, closest runnable example, and `DESIGN.md` only
-when package ownership is unclear. Gotui is API/design truth; this skill owns
-workflow, not a duplicate component rulebook.
+version or commit, and read the pinned tuiweave repository's
+`AGENT-CONTRACT.md`, `COMPATIBILITY.md`, `AGENT-CATALOG.md`, matching `AGENTS.md`
+recipes, closest runnable example, and `DESIGN.md` only when package ownership
+is unclear. Tuiweave is API/design truth; this skill owns workflow, not a
+duplicate component rulebook.
 
 Read the matching reference completely:
 
@@ -42,10 +43,19 @@ Out of scope:
 ## Universal constraints
 
 - Pin or identify the tuiweave version. A local `replace` is development-only.
+- Use `layout.Len`, `Min`, `Max`, `Percent`, `Ratio`, and `Fill`; do not
+  construct, convert, or store Ultraviolet constraint values.
+- Respect `layout.SizeModeOf`: width-bounded components render at their natural
+  height instead of necessarily filling the assigned height.
 - Keep product routing, persistence, backends, and lifecycle in the app.
 - Report reusable API gaps with a minimal example and acceptance test. Do not
   create a local tuiweave fork or modify tuiweave without explicit authorization.
 - Reassign every component model returned by `Update` and collect every command.
+- Keep inspection trees, absolute bounds, action routing, and privacy in the
+  app. Validate a qualified action against the current visible tree before
+  forwarding its local suffix.
+- Translate global tab-strip mouse coordinates to a local x-coordinate before
+  calling `tabs.IndexAt`.
 - Review every intentional golden diff; never regenerate goldens during review.
 - Run build, vet, tests, and `tuiweave-audit.sh`; use `--strict --verify` at handoff.
 

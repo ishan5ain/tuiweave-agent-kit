@@ -1,8 +1,10 @@
 # Migration mode
 
-Inventory rendering, sizing, key/mouse input, scrolling, focus, modals, domain
-state, persistence, and tests. Classify each concern as reusable tuiweave behavior,
-application-owned behavior, or a candidate tuiweave API gap.
+Inventory rendering, sizing and size modes, key/mouse input, scrolling, focus,
+modals, inspection/actions, domain state, persistence, and tests. Classify each
+concern as reusable tuiweave behavior, application-owned behavior, or a
+candidate tuiweave API gap. Replace direct Ultraviolet constraint values with
+tuiweave's layout constructors.
 
 Create vertical slices with the standard task contract and explicit file
 ownership. Preserve behavior before visual changes. Do not execute parallel
