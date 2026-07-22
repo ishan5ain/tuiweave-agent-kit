@@ -10,7 +10,8 @@ workflows, templates, installation guidance, and read-only audit tooling. Pin
 the exact tuiweave version or commit used by an example and keep local
 `replace` directives out of committed application instructions.
 
-Changes must pass `./tests/tuiweave-audit_test.sh`, preserve fixture immutability,
-and explain any intentional contract or workflow change. Pull requests should
-be focused and include verification details. No CLA or DCO sign-off is required.
+Changes must pass `./tests/tuiweave-audit_test.sh` and
+`./tests/sync-tuiweave-reference_test.sh`, preserve fixture immutability, and
+explain any intentional contract or workflow change. Pull requests should be
+focused and include verification details. No CLA or DCO sign-off is required.
 Participation is governed by [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

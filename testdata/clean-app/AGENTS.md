@@ -1,3 +1,3 @@
 # Clean fixture
 
-Gotui is pinned in `go.mod`. Follow the upstream tuiweave agent contract.
+Tuiweave is pinned in `go.mod`. Follow the upstream tuiweave agent contract.

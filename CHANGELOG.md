@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Align the skill, playbooks, templates, and generated compatibility reference
+  with tuiweave v0.2.0, including owned layout constraints, size modes,
+  inspection/action routing, tab hit-testing, and role-aware golden guidance.
+- Extend the read-only audit with dependency-version reporting, Go compatibility
+  guidance, development `replace` detection, `SnapCells` coverage guidance, and
+  `go mod verify` support.
+- Add a tested, idempotent compatibility-reference generator and update audit
+  fixtures to tuiweave v0.2.0.
 - Add contribution, conduct, security, support, governance, and issue/PR
   guidance for the public community repository.
 
