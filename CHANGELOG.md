@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v0.2.0 — 2026-07-21
+
 - Align the skill, playbooks, templates, and generated compatibility reference
   with tuiweave v0.2.0, including owned layout constraints, size modes,
   inspection/action routing, tab hit-testing, and role-aware golden guidance.
