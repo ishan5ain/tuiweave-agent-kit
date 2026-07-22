@@ -5,6 +5,7 @@
 - Align the skill, playbooks, templates, and generated compatibility reference
   with tuiweave v0.2.0, including owned layout constraints, size modes,
   inspection/action routing, tab hit-testing, and role-aware golden guidance.
+- Add compatibility guidance for tuiweave's built-in theme preset catalog.
 - Extend the read-only audit with dependency-version reporting, Go compatibility
   guidance, development `replace` detection, `SnapCells` coverage guidance, and
   `go mod verify` support.

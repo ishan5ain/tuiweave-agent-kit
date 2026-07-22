@@ -43,6 +43,10 @@ Out of scope:
 ## Universal constraints
 
 - Pin or identify the tuiweave version. A local `replace` is development-only.
+- Choose a fixed named theme constructor when theme discovery is unnecessary.
+  When an app exposes built-in choices, enumerate `tuiweave.Presets()`, resolve
+  stable IDs with `ThemeForPreset`, and reconstruct themed components while
+  preserving application-owned state.
 - Use `layout.Len`, `Min`, `Max`, `Percent`, `Ratio`, and `Fill`; do not
   construct, convert, or store Ultraviolet constraint values.
 - Respect `layout.SizeModeOf`: width-bounded components render at their natural
