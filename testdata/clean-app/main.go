@@ -9,6 +9,8 @@ import (
 
 type model struct{ input textarea.Model }
 
+func main() {}
+
 func newModel() model { return model{input: textarea.New(tuiweave.Dark())} }
 
 func (m model) Update(msg tea.Msg) (model, tea.Cmd) {
