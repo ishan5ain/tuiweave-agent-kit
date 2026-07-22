@@ -38,9 +38,16 @@ expect_pass clean --repo "$root/testdata/clean-app" --strict
 after=$(find "$root/testdata/clean-app" -type f -exec cksum {} + | sort)
 [ "$before" = "$after" ] || fail "audit rewrote the clean fixture"
 
+expect_pass clean-verify --repo "$root/testdata/clean-app" --strict --verify
+verified=$(find "$root/testdata/clean-app" -type f -exec cksum {} + | sort)
+[ "$before" = "$verified" ] || fail "verified audit rewrote the clean fixture"
+
 expect_fail raw-color 'raw color' --repo "$root/testdata/raw-color-violation"
 expect_fail ultraviolet 'Ultraviolet' --repo "$root/testdata/ultraviolet-violation"
 expect_pass missing-sizing-advisory --repo "$root/testdata/missing-sizing"
 expect_fail missing-sizing-strict 'WindowSizeMsg' --repo "$root/testdata/missing-sizing" --strict
+expect_fail replace-directive 'replace directive' --repo "$root/testdata/replace-directive" --strict
+expect_fail low-go-version 'supported 1.25.8 floor' --repo "$root/testdata/low-go-version" --strict
+expect_fail missing-snapcells 'SnapCells' --repo "$root/testdata/missing-snapcells" --strict
 
 printf 'PASS: tuiweave audit fixtures\n'

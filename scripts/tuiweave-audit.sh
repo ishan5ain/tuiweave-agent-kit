@@ -53,6 +53,37 @@ advise() {
 
 if [ ! -f "$repo/go.mod" ] || ! grep -q 'github.com/ishan5ain/tuiweave' "$repo/go.mod"; then
 	block "missing github.com/ishan5ain/tuiweave dependency in go.mod"
+else
+	tuiweave_version=$(awk '
+		$1 == "require" && $2 == "github.com/ishan5ain/tuiweave" { print $3; exit }
+		$1 == "github.com/ishan5ain/tuiweave" { print $2; exit }
+	' "$repo/go.mod")
+	if [ -n "$tuiweave_version" ]; then
+		printf 'INFO: tuiweave dependency %s\n' "$tuiweave_version"
+	else
+		advise "could not determine pinned tuiweave version from go.mod"
+	fi
+
+	replace_matches=$(grep -nE '^[[:space:]]*replace[[:space:]]+github[.]com/ishan5ain/tuiweave([[:space:]]|$)|^[[:space:]]*github[.]com/ishan5ain/tuiweave[[:space:]]+=>[[:space:]]+' "$repo/go.mod" || true)
+	if [ -n "$replace_matches" ]; then
+		advise "tuiweave replace directive is development-only and should not be committed"
+		printf '%s\n' "$replace_matches"
+	fi
+fi
+
+go_version=$(awk '$1 == "go" { print $2; exit }' "$repo/go.mod" 2>/dev/null || true)
+if [ -n "$go_version" ]; then
+	if ! awk -v actual="$go_version" -v minimum="1.25.8" 'BEGIN {
+		split(actual, a, "."); split(minimum, m, ".")
+		for (i = 1; i <= 3; i++) {
+			a[i] += 0; m[i] += 0
+			if (a[i] > m[i]) exit 0
+			if (a[i] < m[i]) exit 1
+		}
+		exit 0
+	}'; then
+		advise "go directive $go_version is below tuiweave's supported 1.25.8 floor"
+	fi
 fi
 
 raw_matches=$(find "$repo" -type f -name '*.go' ! -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -HnE '#[[:xdigit:]]{3,8}([^[:xdigit:]]|$)|lipgloss[.]Color[[:space:]]*[(]' {} + 2>/dev/null | grep -Ev '/(theme|themes|color|colors)(/|[^/]*[.]go:)|:[0-9]+:[[:space:]]*//' || true)
@@ -74,8 +105,10 @@ fi
 ui_sources=$(find "$repo" -type f -name '*.go' ! -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'github.com/ishan5ain/tuiweave' {} + 2>/dev/null || true)
 if [ -n "$ui_sources" ]; then
 	snapshot_tests=$(find "$repo" -type f -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'snaptest[.]Snap' {} + 2>/dev/null || true)
+	role_snapshot_tests=$(find "$repo" -type f -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'snaptest[.]SnapCells' {} + 2>/dev/null || true)
 	scenario_tests=$(find "$repo" -type f -name '*_test.go' ! -path '*/vendor/*' ! -path '*/.git/*' -exec grep -l 'snaptest[.]RunScenario' {} + 2>/dev/null || true)
 	[ -n "$snapshot_tests" ] || advise "UI packages have no snaptest.Snap coverage"
+	[ -n "$role_snapshot_tests" ] || advise "UI packages have no snaptest.SnapCells role-aware coverage"
 	[ -n "$scenario_tests" ] || advise "UI packages have no snaptest.RunScenario coverage"
 fi
 
@@ -112,9 +145,12 @@ run_verify() {
 }
 
 if [ "$verify" -eq 1 ]; then
-	run_verify "go build ./..." go build ./...
-	run_verify "go vet ./..." go vet ./...
-	run_verify "go test ./..." go test ./...
+	run_verify "go mod verify" go mod verify
+	verify_build_dir=$(mktemp -d)
+	run_verify "go build ./..." go build -mod=readonly -o "$verify_build_dir/" ./...
+	rm -rf "$verify_build_dir"
+	run_verify "go vet ./..." go vet -mod=readonly ./...
+	run_verify "go test ./..." go test -mod=readonly ./...
 fi
 
 printf 'SUMMARY: %d blocking, %d advisory\n' "$blocking" "$advisory"

@@ -5,6 +5,8 @@
 - Current TUI stack:
 - Pinned tuiweave version/commit:
 - Closest tuiweave examples:
+- Layout rectangles and size modes:
+- Inspection nodes, actions, bounds, and privacy:
 - Existing behavior snapshots:
 
 ## Vertical slices
