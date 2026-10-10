@@ -40,6 +40,8 @@ repo=$(cd "$repo" && pwd)
 
 blocking=0
 advisory=0
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+tuiweave_version=""
 
 block() {
 	blocking=$((blocking + 1))
@@ -72,8 +74,24 @@ else
 fi
 
 go_version=$(awk '$1 == "go" { print $2; exit }' "$repo/go.mod" 2>/dev/null || true)
-if [ -n "$go_version" ]; then
-	if ! awk -v actual="$go_version" -v minimum="1.25.8" 'BEGIN {
+# Resolve only validated pins. A pseudo-version identifies a commit by its
+# trailing hash; do not infer a future release's floor from its version number.
+minimum_go=$(awk -v pin="$tuiweave_version" '
+	$1 == pin && pin != "" { print $2; exit }
+	pin ~ /^v[0-9]+\.[0-9]+\.[0-9]+-.*-[0-9a-f]+$/ && $1 ~ /^[0-9a-f]+$/ && length($1) == 40 {
+		n = split(pin, parts, "-"); hash = parts[n]
+		if (length(hash) >= 12 && length(hash) <= 40 && substr($1, 1, length(hash)) == hash) {
+			print $2; exit
+		}
+	}
+' "$script_dir/tuiweave-go-versions.tsv")
+if [ -n "$tuiweave_version" ] && [ -z "$minimum_go" ]; then
+	advise "Go compatibility is unknown for tuiweave $tuiweave_version; inspect its pinned go.mod and COMPATIBILITY.md"
+elif [ -n "$minimum_go" ]; then
+	printf 'INFO: validated tuiweave Go minimum %s\n' "$minimum_go"
+	if [ -z "$go_version" ]; then
+		advise "missing go directive; tuiweave $tuiweave_version requires Go $minimum_go"
+	elif ! awk -v actual="$go_version" -v minimum="$minimum_go" 'BEGIN {
 		split(actual, a, "."); split(minimum, m, ".")
 		for (i = 1; i <= 3; i++) {
 			a[i] += 0; m[i] += 0
@@ -82,7 +100,7 @@ if [ -n "$go_version" ]; then
 		}
 		exit 0
 	}'; then
-		advise "go directive $go_version is below tuiweave's supported 1.25.8 floor"
+		advise "go directive $go_version is below tuiweave $tuiweave_version supported $minimum_go floor"
 	fi
 fi
 

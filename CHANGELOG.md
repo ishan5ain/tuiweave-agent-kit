@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Validate tuiweave v0.3.0 with Go 1.26.0 and Bubble Tea v2.1.0, and regenerate
+  the supported-version matrix, Go migration guidance, and API reference from
+  its released commit.
+- Resolve audit Go requirements from offline validated tag/commit metadata;
+  retain the Go 1.25.8 floor for older supported tags and report unknown pins
+  instead of guessing their requirements.
+- Add a modern consumer with real view, role-aware, and scenario goldens;
+  preserve legacy coverage and fixture immutability in verified audits.
+- Exercise exact Go 1.26.0 and stable Go in CI, preserving the required `audit`
+  check name. Keep Program Status Protocol reporting optional and app-owned.
+
 ## v0.2.0 — 2026-07-21
 
 - Align the skill, playbooks, templates, and generated compatibility reference

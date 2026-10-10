@@ -43,6 +43,10 @@ Out of scope:
 ## Universal constraints
 
 - Pin or identify the tuiweave version. A local `replace` is development-only.
+- Resolve the Go minimum from that pinned revision's module and compatibility
+  contract. Older tags keep their original floor; the kit's newest validated
+  version does not raise requirements for every application. Verify the
+  selected dependency graph on the exact minimum with `GOTOOLCHAIN=local`.
 - Choose a fixed named theme constructor when theme discovery is unnecessary.
   When an app exposes built-in choices, enumerate `tuiweave.Presets()`, resolve
   stable IDs with `ThemeForPreset`, and reconstruct themed components while
