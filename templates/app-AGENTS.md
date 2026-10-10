@@ -1,6 +1,8 @@
 # Application agent instructions
 
 This application uses `github.com/ishan5ain/tuiweave` at: `<PINNED_VERSION_OR_COMMIT>`.
+Use the Go minimum declared by that revision and its selected dependency graph;
+test the exact minimum with `GOTOOLCHAIN=local`.
 
 API and design truth:
 

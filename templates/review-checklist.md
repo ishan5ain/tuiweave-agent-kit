@@ -1,6 +1,7 @@
 # tuiweave review checklist
 
 - [ ] Tuiweave dependency is pinned and API names match that revision.
+- [ ] The Go directive and toolchain meet that pin's requirement and the selected dependency graph; exact-minimum checks use `GOTOOLCHAIN=local`.
 - [ ] Colors come from semantic theme roles.
 - [ ] App code has no Ultraviolet imports.
 - [ ] Layout constraints use tuiweave constructors; no Ultraviolet values leak into app state.
